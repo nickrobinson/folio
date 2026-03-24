@@ -14,7 +14,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/nickrobinson/folio"
 
 [workspace.dependencies]
-folio-pdf = { path = "crates/folio-pdf", version = "0.0.1" }
+folio-pdf = { path = "crates/folio-pdf", version = "0.0.2" }
 thiserror = "2"
 flate2 = "1"
 memmap2 = "0.9"
