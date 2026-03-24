@@ -4,15 +4,13 @@
 //!   cargo xtask <command>
 //!
 //! Commands:
-//!   publish        Publish all crates to crates.io in dependency order
+//!   publish        Publish folio-pdf to crates.io
 //!   test-oracle    Run oracle comparison tests
 //!   gen-bindings   Generate UniFFI language bindings
 //!   corpus-stats   Show statistics about the test corpus
 
 use std::env;
 use std::process::Command;
-use std::thread;
-use std::time::Duration;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -28,56 +26,34 @@ fn main() {
 }
 
 fn publish() {
-    // Crates must be published leaf-first (dependencies before dependents).
-    let crates = [
-        "folio-core",
-        "folio-filters",
-        "folio-cos",
-        "folio-doc",
-        "folio-content",
-        "folio-font",
-        "folio-text",
-        "folio-image",
-        "folio-annot",
-        "folio-forms",
-        "folio-nav",
-        "folio",
-    ];
-
     let dry_run = env::args().any(|a| a == "--dry-run");
 
-    for (i, krate) in crates.iter().enumerate() {
-        if !dry_run && crate_already_published(krate) {
-            println!("Skipping {krate} ({}/{}) — already published", i + 1, crates.len());
-            continue;
-        }
+    let krate = "folio-pdf";
 
-        println!("Publishing {krate} ({}/{})...", i + 1, crates.len());
-
-        let mut args = vec!["publish", "-p", krate];
-        if dry_run {
-            args.push("--dry-run");
-            args.push("--allow-dirty");
-        }
-
-        let status = Command::new("cargo")
-            .args(&args)
-            .status()
-            .expect("Failed to run cargo publish");
-
-        if !status.success() {
-            eprintln!("Failed to publish {krate}");
-            std::process::exit(1);
-        }
-
-        // Wait for crates.io index to update before publishing the next crate.
-        if !dry_run && i < crates.len() - 1 {
-            println!("Waiting for crates.io index to update...");
-            thread::sleep(Duration::from_secs(15));
-        }
+    if !dry_run && crate_already_published(krate) {
+        println!("Skipping {krate} — already published");
+        return;
     }
 
-    println!("All crates published successfully!");
+    println!("Publishing {krate}...");
+
+    let mut args = vec!["publish", "-p", krate];
+    if dry_run {
+        args.push("--dry-run");
+        args.push("--allow-dirty");
+    }
+
+    let status = Command::new("cargo")
+        .args(&args)
+        .status()
+        .expect("Failed to run cargo publish");
+
+    if !status.success() {
+        eprintln!("Failed to publish {krate}");
+        std::process::exit(1);
+    }
+
+    println!("Published successfully!");
 }
 
 fn crate_already_published(name: &str) -> bool {
@@ -99,7 +75,7 @@ fn crate_already_published(name: &str) -> bool {
         .expect("Failed to run cargo search");
 
     let stdout = String::from_utf8_lossy(&output.stdout);
-    // cargo search output: `folio-core = "0.0.1"    # description`
+    // cargo search output: `folio-pdf = "0.0.1"    # description`
     stdout.lines().any(|line| {
         line.starts_with(&format!("{name} ")) && line.contains(&format!("\"{version}\""))
     })
@@ -156,7 +132,7 @@ fn print_help() {
     println!("Usage: cargo xtask <command>");
     println!();
     println!("Commands:");
-    println!("  publish        Publish all crates to crates.io in dependency order");
+    println!("  publish        Publish folio-pdf to crates.io");
     println!("                 Use --dry-run to validate without uploading");
     println!("  test-oracle    Run oracle comparison tests");
     println!("  gen-bindings   Generate UniFFI language bindings");

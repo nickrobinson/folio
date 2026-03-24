@@ -5,7 +5,7 @@ edition.workspace = true
 publish = false
 
 [dependencies]
-folio-core.workspace = true
+folio-pdf.workspace = true
 thiserror.workspace = true
 uniffi = "0.29"
 

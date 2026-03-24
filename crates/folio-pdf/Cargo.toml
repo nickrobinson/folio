@@ -1,0 +1,20 @@
+[package]
+name = "folio-pdf"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "A comprehensive PDF library for Rust"
+keywords = ["pdf", "document", "parser", "text-extraction"]
+categories = ["parser-implementations", "text-processing"]
+
+[dependencies]
+thiserror.workspace = true
+flate2.workspace = true
+memmap2.workspace = true
+indexmap.workspace = true
+log.workspace = true
+encoding_rs.workspace = true
+image.workspace = true
+bitflags.workspace = true
+regex.workspace = true

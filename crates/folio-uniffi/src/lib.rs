@@ -3,7 +3,7 @@
 //! This crate exposes the Folio API to Swift, Kotlin, Python, and other
 //! languages via Mozilla's UniFFI.
 
-use folio_core::{ColorPt, Matrix2D, PdfDate, Point, Rect};
+use folio_pdf::core::{ColorPt, Matrix2D, PdfDate, Point, Rect};
 
 uniffi::include_scaffolding!("folio");
 
