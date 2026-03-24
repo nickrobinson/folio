@@ -1,0 +1,14 @@
+[package]
+name = "folio-doc"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "PDF document model and page tree for the folio PDF library"
+
+[dependencies]
+folio-core.workspace = true
+folio-cos.workspace = true
+folio-filters.workspace = true
+indexmap.workspace = true
+log.workspace = true

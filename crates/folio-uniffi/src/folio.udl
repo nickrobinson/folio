@@ -1,0 +1,55 @@
+namespace folio {
+    string folio_version();
+};
+
+[Enum]
+interface FolioError {
+    Io(string message);
+    Parse(u64 offset, string message);
+    InvalidObject(string message);
+    Encryption(string message);
+    Signature(string message);
+    InvalidArgument(string message);
+    UnsupportedFeature(string message);
+    Oracle(string message);
+};
+
+dictionary FolioRect {
+    double x1;
+    double y1;
+    double x2;
+    double y2;
+};
+
+dictionary FolioPoint {
+    double x;
+    double y;
+};
+
+dictionary FolioMatrix2D {
+    double a;
+    double b;
+    double c;
+    double d;
+    double h;
+    double v;
+};
+
+dictionary FolioColorPt {
+    double c0;
+    double c1;
+    double c2;
+    double c3;
+};
+
+dictionary FolioPdfDate {
+    u16 year;
+    u8 month;
+    u8 day;
+    u8 hour;
+    u8 minute;
+    u8 second;
+    string ut;
+    u8 ut_hour;
+    u8 ut_minutes;
+};

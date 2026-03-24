@@ -1,0 +1,17 @@
+[package]
+name = "folio-uniffi"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+folio-core.workspace = true
+thiserror.workspace = true
+uniffi = "0.29"
+
+[build-dependencies]
+uniffi = { version = "0.29", features = ["build"] }
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "folio_uniffi"

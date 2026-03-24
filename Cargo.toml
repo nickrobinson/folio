@@ -1,0 +1,47 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/folio",
+    "crates/folio-core",
+    "crates/folio-filters",
+    "crates/folio-cos",
+    "crates/folio-doc",
+    "crates/folio-content",
+    "crates/folio-font",
+    "crates/folio-text",
+    "crates/folio-image",
+    "crates/folio-annot",
+    "crates/folio-forms",
+    "crates/folio-nav",
+    "crates/folio-uniffi",
+    "xtask",
+]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/nickvision/folio"
+
+[workspace.dependencies]
+folio-core = { path = "crates/folio-core", version = "0.0.1" }
+folio-filters = { path = "crates/folio-filters", version = "0.0.1" }
+folio-cos = { path = "crates/folio-cos", version = "0.0.1" }
+folio-doc = { path = "crates/folio-doc", version = "0.0.1" }
+folio-content = { path = "crates/folio-content", version = "0.0.1" }
+folio-font = { path = "crates/folio-font", version = "0.0.1" }
+folio-text = { path = "crates/folio-text", version = "0.0.1" }
+folio-image = { path = "crates/folio-image", version = "0.0.1" }
+folio-annot = { path = "crates/folio-annot", version = "0.0.1" }
+image = "0.25"
+folio-forms = { path = "crates/folio-forms", version = "0.0.1" }
+folio-nav = { path = "crates/folio-nav", version = "0.0.1" }
+bitflags = "2"
+encoding_rs = "0.8"
+thiserror = "2"
+flate2 = "1"
+memmap2 = "0.9"
+indexmap = "2"
+log = "0.4"
+regex = "1"
+criterion = { version = "0.5", features = ["html_reports"] }

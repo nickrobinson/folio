@@ -1,0 +1,10 @@
+[package]
+name = "folio-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Core types and error handling for the folio PDF library"
+
+[dependencies]
+thiserror.workspace = true

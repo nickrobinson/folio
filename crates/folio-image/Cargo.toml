@@ -1,0 +1,15 @@
+[package]
+name = "folio-image"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "PDF image extraction and embedding for the folio PDF library"
+
+[dependencies]
+folio-core.workspace = true
+folio-cos.workspace = true
+folio-filters.workspace = true
+image.workspace = true
+log.workspace = true
+indexmap.workspace = true

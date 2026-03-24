@@ -1,0 +1,26 @@
+/target
+Cargo.lock
+*.dylib
+*.so
+*.dll
+
+# Test corpus (large binary files)
+# tests/corpus/ is tracked via git-lfs or symlinked
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Environment
+.env
+
+PDFNetCMac/**/*
+plan.md
+research.md
+
+# Oracle test crate (uses proprietary SDKs — not for public distribution)
+crates/folio-oracle/

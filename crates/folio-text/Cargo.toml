@@ -1,0 +1,18 @@
+[package]
+name = "folio-text"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "PDF text extraction and search for the folio PDF library"
+
+[dependencies]
+folio-core.workspace = true
+folio-cos.workspace = true
+folio-doc.workspace = true
+folio-content.workspace = true
+folio-font.workspace = true
+folio-filters.workspace = true
+log.workspace = true
+encoding_rs.workspace = true
+regex.workspace = true
