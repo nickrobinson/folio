@@ -7,6 +7,7 @@ repository.workspace = true
 description = "A comprehensive PDF library for Rust"
 keywords = ["pdf", "document", "parser", "text-extraction"]
 categories = ["parser-implementations", "text-processing"]
+readme = "../../README.md"
 
 [dependencies]
 thiserror.workspace = true

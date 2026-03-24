@@ -8,13 +8,13 @@ members = [
 ]
 
 [workspace.package]
-version = "0.0.2"
+version = "0.0.3"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/nickrobinson/folio"
 
 [workspace.dependencies]
-folio-pdf = { path = "crates/folio-pdf", version = "0.0.2" }
+folio-pdf = { path = "crates/folio-pdf", version = "0.0.3" }
 thiserror = "2"
 flate2 = "1"
 memmap2 = "0.9"
